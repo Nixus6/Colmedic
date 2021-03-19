@@ -4,7 +4,7 @@ from rest_framework.decorators import api_view
 from rest_framework import status
 
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
-from .models import Customer
+from .models import Quotes
 from .serializers import *
 
 @api_view(['GET', 'POST'])
@@ -14,7 +14,7 @@ def quotes_list(request):
         data = []
         nextPage = 1
         previousPage = 1
-        customers = Customer.objects.all()
+        customers = Quotes.objects.all()
         page = request.GET.get('page', 1)
         paginator = Paginator(customers, 5)
         try:
@@ -43,8 +43,8 @@ def quotes_list(request):
 def quotes_detail(request, pk):
 
     try:
-        customer = Customer.objects.get(pk=pk)
-    except Customer.DoesNotExist:
+        customer = Quotes.objects.get(pk=pk)
+    except Quotes.DoesNotExist:
         return Response(status=status.HTTP_404_NOT_FOUND)
 
     if request.method == 'GET':

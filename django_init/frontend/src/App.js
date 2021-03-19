@@ -3,7 +3,9 @@ import './App.css';
 import Nav from './components/navbar/navbar'
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom'
 import { Home } from './views/Home/home'
-import { Agendar } from './views/Agendar/agendar'
+import  Agendar  from './views/Agendar/agendarform'
+
+
 
 function App() {
   return (

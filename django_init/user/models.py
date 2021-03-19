@@ -5,4 +5,4 @@ from django.contrib.auth.models import AbstractUser
 # Create your models here.
 
 class User(AbstractUser):
-    type_user = models.SmallIntegerField() 
+    type_user = models.SmallIntegerField(null=True) 

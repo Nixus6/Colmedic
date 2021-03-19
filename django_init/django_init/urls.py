@@ -22,8 +22,8 @@ from django.conf.urls import url
 urlpatterns = [
     path('admin/', admin.site.urls),
 
-    url(r'^api/quotes/$', views.customers_list),
-    url(r'^api/quotes/(?P<pk>[0-9]+)$', views.customers_detail),
+    url(r'^api/quotes/$', views.quotes_list),
+    url(r'^api/quotes/(?P<pk>[0-9]+)$', views.quotes_detail),
 
     # ---
     # path('api/', include('api.urls')),
