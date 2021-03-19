@@ -3,12 +3,12 @@ from django.db import models
 # Create your models here.
 
 #Representa una tabla en mi base de datos
-class Quotes(models.Model):
-    id_Quotes = models.AutoField(primary_key = True, unique = True)
-    date = models.CharField(max_length = 2)
-    time = models.CharField(max_length = 2)
-    hour = models.CharField(max_length = 2)
-    created_at = models.DateTimeField(auto_now_add=True)
+# class Quotes(models.Model):
+#     id_Quotes = models.AutoField(primary_key = True, unique = True)
+#     date = models.CharField(max_length = 2)
+#     time = models.CharField(max_length = 2)
+#     hour = models.CharField(max_length = 2)
+#     created_at = models.DateTimeField(auto_now_add=True)
     #foreign modality = 
     #foreign medical_Center = models.CharField(max_length = 100)
     #foreign City =

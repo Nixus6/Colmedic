@@ -15,10 +15,18 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, include
-from django.views.generic import TemplateView
+# from django.views.generic import TemplateView
+from quotes import views
+from django.conf.urls import url
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', include('api.urls')),
-    path('react', TemplateView.as_view(template_name='index.html'))
+
+    url(r'^api/quotes/$', views.customers_list),
+    url(r'^api/quotes/(?P<pk>[0-9]+)$', views.customers_detail),
+
+    # ---
+    # path('api/', include('api.urls')),
+    # path('', TemplateView.as_view(template_name='index.html'))
+
 ]
