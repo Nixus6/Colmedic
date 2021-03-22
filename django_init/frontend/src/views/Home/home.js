@@ -1,10 +1,9 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 import './home.css'
-import image1 from './img/cita-medica.svg'
+import image1 from './img/cita-medica.svg';
+import image2 from './img/calendario.svg';
 import Grid from '@material-ui/core/Grid';
-
-import Container from '@material-ui/core/Container';
 //Card
 import { makeStyles } from '@material-ui/core/styles';
 import Card from '@material-ui/core/Card';
@@ -12,7 +11,6 @@ import CardActions from '@material-ui/core/CardActions';
 import CardContent from '@material-ui/core/CardContent';
 import Button from '@material-ui/core/Button';
 import Typography from '@material-ui/core/Typography';
-
 
 const useStyles = makeStyles({
     root: {
@@ -31,49 +29,35 @@ const useStyles = makeStyles({
     },
 });
 
-function Cardhome() {
+function Cardshome(props) {
     return (
-        <>
-        </>
-    );
+        <Card className="align-flex" variant="outlined" style={{ alignItems: "center" }}>
+            <CardContent>
+                <Typography variant="h5" component="h2">
+                    {props.name}
+                </Typography>
+                <img
+                    className=""
+                    src={props.image}
+                    width="100"
+                />
+            </CardContent>
+            <CardActions className="align-fex-bottoms">
+                <Link className="Link" to={props.redirect}><Button size="small">{props.textbutton}</Button></Link>
+            </CardActions>
+        </Card>
+    )
 }
 
 export const Home = () => {
     const classes = useStyles();
-    const bull = <span className={classes.bullet}>•</span>;
     return (
         <>
             <Grid className="space" container spacing={1} direction="row" justify="center">
 
                 <h1>Portal Salud</h1>
-                <Card className={classes.root} variant="outlined">
-                    <CardContent>
-
-                        <Typography variant="h5" component="h2">
-                            Agendar Cita
-        </Typography>
-                        <img
-                            className=""
-                            src={image1}
-                            width="100"
-                        />
-                    </CardContent>
-                    <CardActions>
-                        <Link className="Link" to={"agendar"}><Button size="small">Agendar</Button></Link>
-                    </CardActions>
-                </Card>
-
-
-                <Card className={classes.root}>
-                    <CardContent>
-                        <Typography variant="h5" component="h2">
-                            Mis Citas
-        </Typography>
-                    </CardContent>
-                    <CardActions>
-                        <Button size="small">Learn More</Button>
-                    </CardActions>
-                </Card>
+                <Cardshome name="Agendar Cita" image={image1} redirect="agendar" textbutton="Agendar" />
+                <Cardshome name="Mis Citas" image={image2} textbutton="Visualizar" />
 
             </Grid>
         </>

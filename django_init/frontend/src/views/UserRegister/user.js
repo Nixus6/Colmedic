@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import axios from '../../QuotesServices';
+import axiosInstance from '../../QuotesServices';
 import { useHistory } from 'react-router-dom';
 //MaterialUI
 import Avatar from '@material-ui/core/Avatar';
@@ -45,7 +45,6 @@ export default function SignUp() {
     const handleChange = (e) => {
         updateFormData({
             ...formData,
-            // Trimming any whitespace
             [e.target.name]: e.target.value.trim(),
         });
     };
@@ -53,16 +52,21 @@ export default function SignUp() {
     const handleSubmit = (e) => {
         e.preventDefault();
         console.log(formData);
-        axios.post(`user/create/`, {
-                email: formData.email,
-                user_name: formData.username,
-                password: formData.password,
-            })
-            // .then((res) => {
-            //     history.push('/login');
-            //     console.log(res);
-            //     console.log(res.data);
-            // });
+        // try {
+            axiosInstance
+                .post(`user/create/`, {
+                    email: formData.email,
+                    user_name: formData.username,
+                    password: formData.password,
+                })
+                .then((res) => {
+                    history.push('/login');
+                    console.log(res);
+                    console.log(res.data);
+                });
+        // } catch (error) {
+        //     console.log(error);
+        // }
     };
 
     const classes = useStyles();

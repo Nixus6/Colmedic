@@ -1,25 +1,27 @@
 import axios from 'axios';
-const API_URL = 'http://localhost:8000/api';
+const API_URL = 'http://localhost:8000/api/';
 
 
 // export default class QuotesServices{
-    
-    const axiosInstance = axios.create({
+
+const axiosInstance = axios.create({
+
         baseURL: API_URL,
-        timeout: 5000,
+        // timeout: 5000,
         headers: {
             Authorization: localStorage.getItem('access_token')
                 ? 'JWT ' + localStorage.getItem('access_token')
                 : null,
             'Content-Type': 'application/json',
             accept: 'application/json',
-        }, 
-    });
-    export default axiosInstance;
-    
+        },
+
+});
+export default axiosInstance;
+
 //     constructor(){}
 
-    
+
 //     getQuotes() {
 //         const url = `${API_URL}/api/quotes/`;
 //         return axios.get(url).then(response => response.data);
