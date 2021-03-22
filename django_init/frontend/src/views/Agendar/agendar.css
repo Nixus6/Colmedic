@@ -7,3 +7,9 @@
 .space > div {
     margin: 20px 20px;
 }
+.align-flex{
+    text-align: center;
+}
+.align-fex-bottoms{
+    justify-content: center;
+}

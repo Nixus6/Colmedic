@@ -1,0 +1,16 @@
+#paper{
+    margin: 10px;
+    max-width: 500px;
+}
+.title{
+    padding: 10px;
+    margin-bottom: 0;
+}
+.subtitle{
+    padding: 10px;
+    margin-top: 0;
+    /* font-weight: 400; */
+}
+.family{
+    padding: 20px;
+}
